@@ -1,18 +1,61 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+}
+
+.login-body {
+    background: url(/img/lote2.png) no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    max-width: 100%;
+}
+
+.titulo {
+    color: #227C70;
+    text-align: center;
+    text-anchor: middle;
+}
+
+.iniciarsesion {
+    color: #3C6255;
+}
+
+.home {
+    background: url(/img/lote4.png) no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    max-width: 100%;
+}
+
+.body_layout {
+    background: url(/img/lote4.png) no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    max-width: 100%;
+}
+
+.dataTables_wrapper {
+    background-color: #FFFFFF;
+    border: medium;
+}
+
+.tabla-roles {
+    background-color: #FFFFFF;
 }

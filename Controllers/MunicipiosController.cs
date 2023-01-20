@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TuLote.Data;
 using TuLote.Models;
@@ -6,6 +7,7 @@ using TuLote.Servicios;
 
 namespace TuLote.Controllers
 {
+    [Authorize(Roles = "Administrador")]
     public class MunicipiosController : Controller
     {
         private readonly ApplicationDbContext _context;

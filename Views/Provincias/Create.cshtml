@@ -9,13 +9,13 @@
         <div asp-validation-summary="ModelOnly" class="danger"></div>
         <div class="Row">
 
-            <h3 class="text-start text-primary">Crear Provincia</h3>
+            <h3 class="text-start  fw-bolder text-white">Crear Provincia</h3>
 
             <div class="col-md-4 mb-3">
                 @*<label asp-for="Nombre" class="control-label"></label>*@
                 <select onchange="ddl_change_func(this);" asp-for="Id" class="form-control"
                         asp-items="ViewBag.listaProvincias">
-                    <option value="">-- Seleccionar Municipio --</option>
+                    <option value="">-- Seleccionar Provincia --</option>
                 </select>
 
                 <input id="selected_val" type="hidden" name="Nombre" value="" />

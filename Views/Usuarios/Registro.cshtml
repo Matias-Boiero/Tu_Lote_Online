@@ -1,0 +1,65 @@
+﻿@model TuLote.Models.ViewModel.RegistroVM
+@{
+    ViewData["Title"] = "Registro";
+}
+
+
+
+<body class="login-body">
+
+
+
+
+    <div class="card">
+        <div class="card-body">
+            <h2 class="text-success">Registrarse</h2>
+            <form asp-action="Registro">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div asp-validation-summary="ModelOnly" class="text-dander"> </div>
+                        <div class="mb-3">
+                            <label asp-for="Nombre" class="form-label"></label>
+                            <input asp-for="Nombre" class="form-control" />
+                            <span asp-validation-for="Nombre" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="Apellido" class="form-label"></label>
+                            <input asp-for="Apellido" class="form-control" />
+                            <span asp-validation-for="Apellido" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="Alias" class="form-label"></label>
+                            <input asp-for="Alias" class="form-control" />
+                            <span asp-validation-for="Alias" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label asp-for="Telefono" class="form-label"></label>
+                            <input asp-for="Telefono" class="form-control" />
+                            <span asp-validation-for="Telefono" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="Email" class="form-label"></label>
+                            <input asp-for="Email" type="email" class="form-control" placeholder="ejemplo@gmal.com" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="Contraseña" class="form-label"></label>
+                            <input asp-for="Contraseña" class="form-control" placeholder="--Ingrese su clave--" />
+                            <span asp-validation-for="Contraseña" class="text-danger"></span>
+                        </div>
+
+                    </div>
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-success  btn-block">Registrarse</button>
+                        <a class="btn btn-warning btn-block" asp-action="login">Deseo Loguearme</a>
+                    </div>
+            </form>
+        </div>
+    </div>
+</body>
+@section Scripts{
+<partial name="_ValidationScriptsPartial" />
+}
+

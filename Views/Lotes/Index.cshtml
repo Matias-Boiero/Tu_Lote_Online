@@ -5,11 +5,11 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" />
-<h1 class="text-warning">Lotes</h1>
+<h1 class="text-white">Lotes</h1>
 
 <div class="row">
     <div class="col-8">
-        <a asp-action="Crear" class="btn btn-success">Crear Lote</a>
+        <a asp-action="Crear" class="btn btn-success mb-3">Crear Lote</a>
     </div>
 </div>
 
@@ -29,6 +29,7 @@
                             <th scope="col" class=col-md-2>Disponible</th>
                             <th scope="col" class=col-md-2>Barrio</th>
                             <th scope="col" class=col-md-2>Localidad</th>
+                            <th scope="col" class=col-md-2>Agente</th>
                             <th scope="col" class=col-md-2>Acciones</th>
 
 
@@ -37,15 +38,16 @@
                     <tbody>
                         @foreach (var item in Model)
                         {
-                            <tr class=col-md-6>
-                                <td scope="col">@item.Numero</td>
+                            <tr class="col-md-6 text-center">
+                                <td class="text-danger" scope="col">@item.Numero</td>
                                 <td scope="col">@item.Metros</td>
                                 <td scope="col">@item.Etapa</td>
-                                <td scope="col">@item.Orientacion</td>
+                                <td class="text-primary" scope="col">@item.Orientacion</td>
                                 <td scope="col">@item.Precio</td>
                                 <td scope="col">@item.Disponible</td>
                                 <td scope="col">@item.Barrio.Nombre</td>
                                 <td scope="col">@item.Barrio.Localidad.Nombre</td>
+                                <td class="text-success" scope="col">@item.Usuario.Alias</td>
                                 <td scope="col">
                                     <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
                                     <a asp-action="Details" asp-route-id="@item.Id">Detalle</a> |

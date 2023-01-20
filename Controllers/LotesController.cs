@@ -16,7 +16,7 @@ namespace TuLote.Controllers
         }
         public IActionResult Index()
         {
-            var listaLotes = _context.Lotes.Include(b => b.Barrio).Include(l => l.Barrio.Localidad).ToList();
+            var listaLotes = _context.Lotes.Include(b => b.Barrio).Include(l => l.Barrio.Localidad).Include(l => l.Usuario).ToList();
             return View(listaLotes);
         }
 
@@ -24,6 +24,8 @@ namespace TuLote.Controllers
         public async Task<IActionResult> Crear()
         {
             ViewData["Barrio_Id"] = new SelectList(_context.Barrios, "Id", "Nombre");
+            ViewData["Usuario"] = new SelectList(_context.Users, "Id", "Alias");
+
             return View();
         }
 
@@ -75,6 +77,7 @@ namespace TuLote.Controllers
                 return NotFound();
             }
             ViewData["Barrio_Id"] = new SelectList(_context.Barrios, "Id", "Nombre", lote.Barrio_Id);
+            ViewData["Usuario"] = new SelectList(_context.Users, "Id", "Alias");
             return View(lote);
         }
 

@@ -1,0 +1,41 @@
+﻿@model TuLote.Models.ViewModel.LoginVM
+
+@{
+    ViewData["Title"] = "Login";
+}
+<body class="login-body">
+
+
+
+    <div class="card">
+        <div class="card-body">
+            <h2 class="text-success">Iniciar sesión</h2>
+            <form asp-action="Login">
+                <div asp-validation-summary="ModelOnly" class="text-dander"> </div>
+                <div class="mb-3">
+                    <label asp-for="Email" class="form-label"></label>
+                    <input asp-for="Email" type="email" class="form-control" placeholder="ejemplo@gmal.com" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Password" class="form-label"></label>
+                    <input asp-for="Password" class="form-control" placeholder="--Ingrese su clave--" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <div class="form-check mb-3">
+                    <input type="checkbox" class="form-check-input" asp-for="Recuerdame">
+                    <label asp-for="Recuerdame"></label>
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <button type="submit" asp-controller="Usuarios" class="btn btn-success">Ingresar</button>
+                <a class="btn btn-warning" asp-action="Registro">Registrarse</a>
+            </form>
+        </div>
+    </div>
+</body>
+@section Scripts{
+<partial name="_ValidationScriptsPartial" />
+}
+
+
+

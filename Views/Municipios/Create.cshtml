@@ -5,9 +5,9 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Crear</h1>
+<h1 class="text-white">Crear</h1>
 
-<h4>Municipio</h4>
+<h4 class="text-warning">Municipio</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -15,28 +15,29 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
             <div class="form-group">
-                <select class="form-control" onchange="ddl_change_func2(this);" id="provinciaId" asp-for="Provincia.Id"
+                <select class="form-control mb-2" onchange="ddl_change_func2(this);" id="provinciaId" asp-for="Provincia.Id"
                         name="ProvinciasList" asp-items="@(new SelectList(ViewBag.Provincias,"Id","Nombre"))">
                     <option value="">-- Seleccionar Provincia --</option>
                 </select>
                 <input id="selected_val2" type="hidden" name="Provincia_Id" value="" />
 
             </div>
-            <div class="form-group">
-                <select onchange="ddl_change_func(this,this);" class="form-control" id="MunicipioId" asp-for="Id" name="MunicipioList" asp-items="@(new SelectList(string.Empty,"Id","Nombre"))" />
-                <input id="selected_val" name="Nombre" value="" />
-                <input id="selected_val3" name="id" value="" />
+            <div class="form-group mb-2">
+                <select onchange="ddl_change_func(this,this);" class="form-control" id="MunicipioId" asp-for="Id"
+                        name="MunicipioList" asp-items="@(new SelectList(string.Empty,"Id","Nombre"))" />
+                <input id="selected_val" type="hidden" name="Nombre" value="" />
+                <input id="selected_val3" type="hidden" name="id" value="" />
             </div>
 
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Crear" class="btn btn-success" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Regresar</a>
+    <a class="text-white fw-bolder" asp-action="Index">Regresar</a>
 </div>
 
 <script src="~/lib/jquery/dist/jquery.min.js"></script>

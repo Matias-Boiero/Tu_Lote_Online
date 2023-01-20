@@ -18,12 +18,15 @@ namespace TuLote.Models
         public string Etapa { get; set; }
         [EnumDataType(typeof(Orientacion))]
         public Orientacion Orientacion { get; set; }
-
         public bool Disponible { get; set; }
         public int Precio { get; set; }
         [ForeignKey("Barrio")]
         public int Barrio_Id { get; set; }
         public Barrio Barrio { get; set; }
+        [ForeignKey("Usuario")]
+        public string Usuario_Id { get; set; }
+        public Usuario Usuario { get; set; }
+
 
 
     }

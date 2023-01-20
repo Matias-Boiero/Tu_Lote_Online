@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using TuLote.Data;
@@ -7,6 +8,7 @@ using TuLote.Servicios;
 
 namespace TuLote.Controllers
 {
+    //[Authorize(Roles = "Administrador")]
     public class BarriosController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -38,6 +40,7 @@ namespace TuLote.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [AllowAnonymous]
         public async Task<IActionResult> Create(Barrio barrio)
         {
             if (ModelState.IsValid)
