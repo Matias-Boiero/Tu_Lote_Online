@@ -218,6 +218,9 @@ namespace TuLote.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime>("FechaCreacion")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Metros")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");

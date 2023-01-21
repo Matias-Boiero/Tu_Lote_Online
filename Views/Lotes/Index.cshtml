@@ -10,7 +10,9 @@
 <div class="row">
     <div class="col-8">
         <a asp-action="Crear" class="btn btn-success mb-3">Crear Lote</a>
+        <a asp-action="LotesPDF" class="btn btn-danger mb-3">Exportar a PDF</a>
     </div>
+
 </div>
 
 @if (Model.Count() > 0)
@@ -29,6 +31,7 @@
                             <th scope="col" class=col-md-2>Disponible</th>
                             <th scope="col" class=col-md-2>Barrio</th>
                             <th scope="col" class=col-md-2>Localidad</th>
+                            <th scope="col" class=col-md-2>Fecha de creación</th>
                             <th scope="col" class=col-md-2>Agente</th>
                             <th scope="col" class=col-md-2>Acciones</th>
 
@@ -47,6 +50,7 @@
                                 <td scope="col">@item.Disponible</td>
                                 <td scope="col">@item.Barrio.Nombre</td>
                                 <td scope="col">@item.Barrio.Localidad.Nombre</td>
+                                <td scope="col">@item.FechaCreacion.ToString("dd/MM/yy")</td>
                                 <td class="text-success" scope="col">@item.Usuario.Alias</td>
                                 <td scope="col">
                                     <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |

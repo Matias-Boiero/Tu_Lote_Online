@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Rotativa.AspNetCore;
+using Rotativa.AspNetCore.Options;
 using TuLote.Data;
 using TuLote.Models;
 
@@ -32,6 +34,7 @@ namespace TuLote.Controllers
         //Post
         [HttpPost]
         [AutoValidateAntiforgeryToken]
+
         public async Task<IActionResult> Crear(Lote lote)
         {
             if (ModelState.IsValid)
@@ -84,6 +87,7 @@ namespace TuLote.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+
         public async Task<IActionResult> Edit(int id, Lote lote)
         {
             if (id != lote.Id)
@@ -157,5 +161,17 @@ namespace TuLote.Controllers
         {
             return _context.Lotes.Any(e => e.Id == id);
         }
+
+        public async Task<IActionResult> LotesPDF()
+        {
+            //return View(await _context.Lotes.ToListAsync());
+
+            return new ViewAsPdf("LotesPDF", await _context.Lotes.Include(b => b.Barrio).Include(l => l.Barrio.Localidad).Include(l => l.Usuario).ToListAsync())
+            {
+                PageMargins = new Margins(5, 10, 12, 10)
+            };
+        }
+
     }
 }
+

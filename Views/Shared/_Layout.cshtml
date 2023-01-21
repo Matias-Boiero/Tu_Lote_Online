@@ -44,18 +44,19 @@
                                     <li class="nav-item">
                                         <a class="dropdown-item text-dark" asp-area="" asp-controller="Localidades" asp-action="Index">Localidades</a>
                                     </li>
+                                    <li class="nav-item">
+                                        <a class="dropdown-item text-dark" asp-area="" asp-controller="Barrios" asp-action="Index">Barrios</a>
+                                    </li>
                                 }
-                                <li class="nav-item">
-                                    <a class="dropdown-item text-dark" asp-area="" asp-controller="Barrios" asp-action="Index">Barrios</a>
-                                </li>
                             </ul>
                         </li>
 
-
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Lotes" asp-action="Index">Lotes</a>
-                        </li>
-
+                        @if (User.IsInRole("Administrador") || User.IsInRole("Agente"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Lotes" asp-action="Index">Lotes</a>
+                            </li>
+                        }
                     </ul>
                     <partial name="_LinksLogin" />
                 </div>

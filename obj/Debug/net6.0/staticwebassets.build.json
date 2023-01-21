@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "j+baaDYMVCXUzT6VCxXO7V35Yctam0vnDZcFEq/c/xg=",
+  "Hash": "r2Rz6b6L+SmpbDOdHBNH3BW8vrfZLt4jk4xtLENbxcI=",
   "Source": "TuLote",
   "BasePath": "_content/TuLote",
   "Mode": "Default",
@@ -85,6 +85,23 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
+      "Identity": "C:\\Users\\maty_\\source\\repos\\TuLote\\TuLote\\wwwroot\\img\\logo.png",
+      "SourceId": "TuLote",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\maty_\\source\\repos\\TuLote\\TuLote\\wwwroot\\",
+      "BasePath": "_content/TuLote",
+      "RelativePath": "img/logo.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\logo.png"
+    },
+    {
       "Identity": "C:\\Users\\maty_\\source\\repos\\TuLote\\TuLote\\wwwroot\\img\\lote1.png",
       "SourceId": "TuLote",
       "SourceType": "Discovered",
@@ -151,6 +168,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\lote4.png"
+    },
+    {
+      "Identity": "C:\\Users\\maty_\\source\\repos\\TuLote\\TuLote\\wwwroot\\img\\LotesPDF.pdf",
+      "SourceId": "TuLote",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\maty_\\source\\repos\\TuLote\\TuLote\\wwwroot\\",
+      "BasePath": "_content/TuLote",
+      "RelativePath": "img/LotesPDF.pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\LotesPDF.pdf"
     },
     {
       "Identity": "C:\\Users\\maty_\\source\\repos\\TuLote\\TuLote\\wwwroot\\js\\site.js",

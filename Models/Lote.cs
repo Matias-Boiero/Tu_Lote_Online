@@ -19,7 +19,13 @@ namespace TuLote.Models
         [EnumDataType(typeof(Orientacion))]
         public Orientacion Orientacion { get; set; }
         public bool Disponible { get; set; }
+        [Required]
+        [Display(Name = "Precio en dolares")]
         public int Precio { get; set; }
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [Display(Name = "Creación del lote")]
+        public DateTime FechaCreacion { get; set; }
         [ForeignKey("Barrio")]
         public int Barrio_Id { get; set; }
         public Barrio Barrio { get; set; }

@@ -1,7 +1,5 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.EntityFrameworkCore;
 using TuLote.Data;
 using TuLote.Models;
@@ -9,12 +7,9 @@ using TuLote.Seed;
 using TuLote.Servicios;
 
 var builder = WebApplication.CreateBuilder(args);
-var politicaUsuariosAutenticados = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
+
 // Add services to the container.
-builder.Services.AddControllersWithViews(async opciones =>
-{
-    opciones.Filters.Add(new AuthorizeFilter(politicaUsuariosAutenticados));
-});
+builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<ApplicationDbContext>(op => op.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
@@ -79,8 +74,11 @@ using (var scope = app.Services.CreateScope())
 }
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Lotes}/{action=Index}/{id?}");
+    pattern: "{controller=usuarios}/{action=login}/{id?}");
 
+IWebHostEnvironment env = app.Environment;
+Rotativa.AspNetCore.RotativaConfiguration.Setup(env.WebRootPath, "../Rotativa/Windows/");
 app.Run();
+
 
 

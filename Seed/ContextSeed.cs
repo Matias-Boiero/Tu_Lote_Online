@@ -12,6 +12,7 @@ namespace TuLote.Seed
 
             await roleManager.CreateAsync(new IdentityRole(Roles.Administrador.ToString()));
             await roleManager.CreateAsync(new IdentityRole(Roles.Agente.ToString()));
+
         }
 
         public static async Task SeedAdminAsync(UserManager<Usuario> userManager, RoleManager<IdentityRole> roleManager)
@@ -38,6 +39,7 @@ namespace TuLote.Seed
                     await userManager.CreateAsync(defaultUser, "Admin123*");
                     await userManager.AddToRoleAsync(defaultUser, Roles.Administrador.ToString());
                     await userManager.AddToRoleAsync(defaultUser, Roles.Agente.ToString());
+
 
                 }
             }

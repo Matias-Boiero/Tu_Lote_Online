@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using TuLote.Data;
@@ -8,7 +7,7 @@ using TuLote.Servicios;
 
 namespace TuLote.Controllers
 {
-    //[Authorize(Roles = "Administrador")]
+
     public class BarriosController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -40,7 +39,7 @@ namespace TuLote.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [AllowAnonymous]
+
         public async Task<IActionResult> Create(Barrio barrio)
         {
             if (ModelState.IsValid)
@@ -49,7 +48,7 @@ namespace TuLote.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            //ViewData["Localidad_Id"] = new SelectList(_context.Localidades, "Id", "Nombre", barrio.Localidad_Id);
+            ViewData["Localidad_Id"] = new SelectList(_context.Localidades, "Id", "Nombre", barrio.Localidad_Id);
             return View(barrio);
         }
 
@@ -104,11 +103,9 @@ namespace TuLote.Controllers
             return View(barrio);
         }
 
-        // POST: Barrios/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+
         public async Task<IActionResult> Edit(int id, Barrio barrio)
         {
             if (id != barrio.Id)
@@ -162,6 +159,7 @@ namespace TuLote.Controllers
         // POST: Barrios/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             if (_context.Barrios == null)

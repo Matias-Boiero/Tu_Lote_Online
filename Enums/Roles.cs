@@ -2,8 +2,8 @@
 {
     public enum Roles
     {
-
         Administrador,
+        Superagente,
         Agente
     }
 }

@@ -99,7 +99,7 @@ namespace TuLote.Controllers
         public async Task<ActionResult> Logout()
         {
             await HttpContext.SignOutAsync(IdentityConstants.ApplicationScheme);
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Login", "Usuarios");
         }
     }
 }
