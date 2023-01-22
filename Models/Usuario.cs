@@ -14,7 +14,6 @@ namespace TuLote.Models
         [Required(ErrorMessage = "El campo {0} es requerido")]
         [MaxLength(3)]
         public string Alias { get; set; }
-        [Required(ErrorMessage = "El campo {0} es requerido")]
         public string Telefono { get; set; }
         [Required(ErrorMessage = "El campo {0} es requerido")]
         [EmailAddress(ErrorMessage = "El mail debe ser válido")]

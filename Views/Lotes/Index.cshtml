@@ -17,25 +17,23 @@
 
 @if (Model.Count() > 0)
 {
-    <div class="container">
-        <div class="Row">
-            <div class="col-md-6">
+    <div class="container login-container ">
+        <div class="Row login-row  col-lg-6 col-md-6 col-9 m-6 col-xs-10  col-10">
+            <div class="">
                 <table class="table table-light table-striped table-bordered" id="MiTabla">
                     <thead>
-                        <tr class=col-md-12>
-                            <th scope="col" class=col-md-4>Número de Lote</th>
-                            <th scope="col" class=col-md-2>Metros</th>
-                            <th scope="col" class=col-md-2>Etapa</th>
-                            <th scope="col" class=col-md-4>Orientación</th>
-                            <th scope="col" class=col-md-2>Precio</th>
-                            <th scope="col" class=col-md-2>Disponible</th>
-                            <th scope="col" class=col-md-2>Barrio</th>
-                            <th scope="col" class=col-md-2>Localidad</th>
-                            <th scope="col" class=col-md-2>Fecha de creación</th>
-                            <th scope="col" class=col-md-2>Agente</th>
-                            <th scope="col" class=col-md-2>Acciones</th>
-
-
+                        <tr class="col-md-12">
+                            <th scope="col" class="col-md-4 text-secondary fw-bolder text-center">Número de Lote</th>
+                            <th scope="col" class="col-md-2 text-secondary fw-bolder text-center">Metros</th>
+                            <th scope="col" class="col-md-2 text-secondary fw-bolder text-center">Etapa</th>
+                            <th scope="col" class="col-md-4 text-secondary fw-bolder text-center">Orientación</th>
+                            <th scope="col" class="col-md-2 text-secondary fw-bolder text-center">Precio</th>
+                            <th scope="col" class="col-md-2 text-secondary fw-bolder text-center">Disponible</th>
+                            <th scope="col" class="col-md-2 text-secondary fw-bolder text-center">Barrio</th>
+                            <th scope="col" class="col-md-2 text-secondary fw-bolder text-center"> Localidad</th>
+                            <th scope="col" class="col-md-2 text-secondary fw-bolder text-center">Fecha</th>
+                            <th scope="col" class="col-md-2 text-secondary fw-bolder text-center">Agente</th>
+                            <th scope="col" class="col-md-2 text-secondary fw-bolder text-center">Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -53,9 +51,9 @@
                                 <td scope="col">@item.FechaCreacion.ToString("dd/MM/yy")</td>
                                 <td class="text-success" scope="col">@item.Usuario.Alias</td>
                                 <td scope="col">
-                                    <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
-                                    <a asp-action="Details" asp-route-id="@item.Id">Detalle</a> |
-                                    <a asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
+                                    <a asp-action="Edit" asp-route-id="@item.Id"><i class="fa-solid fa-pencil text-primary"></i></a> |
+                                    <a asp-action="Details" asp-route-id="@item.Id"><i class="fa-solid fa-paperclip text-success"></i></a> |
+                                    <a asp-action="Delete" asp-route-id="@item.Id"><i class="fa-regular fa-trash-can text-danger"></i></a>
                                 </td>
                             </tr>
                         }
@@ -65,7 +63,6 @@
             </div>
         </div>
     </div>
-
 }
 else
 {
@@ -73,14 +70,13 @@ else
 }
 
 @section Scripts {
-@{
+    @{
     await Html.RenderPartialAsync("_ValidationScriptsPartial");
-}
+    }
 
 <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 
 <script type="text/javascript">
-
     $(document).ready(function () {
     $('#MiTabla').DataTable({
     "language": {
@@ -94,3 +90,4 @@ else
     });
 </script>
 }
+

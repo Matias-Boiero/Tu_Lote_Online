@@ -18,7 +18,7 @@
 {
     <div class="container">
         <div class="Row">
-            <div class="col-md-6">
+            <div class="col-md-6 text-center">
                 <table class="table table-light table-striped table-bordered" id="MiTabla">
                     <thead>
 
@@ -33,14 +33,14 @@
                     <tbody>
                         @foreach (var item in Model)
                         {
-                            <tr class=col-md-6>
+                            <tr class="col-md-8 text-center">
                                 <td scope="col">@item.Nombre</td>
                                 <td scope="col">@item.Localidad.Nombre</td>
                                 <td scope="col">@item.Localidad.Municipio.Nombre</td>
-                                <td>
-                                    <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
-                                    <a asp-action="Details" asp-route-id="@item.Id">Detalle</a> |
-                                    <a asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
+                                <td scope="col" class="col-3">
+                                    <a asp-action="Edit" asp-route-id="@item.Id"><i class="fa-solid fa-pencil text-warning"></i></a> |
+                                    <a asp-action="Details" asp-route-id="@item.Id"><i class="fa-solid fa-paperclip text-success"></i></a> |
+                                    <a asp-action="Delete" asp-route-id="@item.Id"><i class="fa-regular fa-trash-can text-danger"></i></a>
                                 </td>
 
                             </tr>

@@ -59,3 +59,33 @@ body {
 .tabla-roles {
     background-color: #FFFFFF;
 }
+
+.login-row {
+    margin-right: 0px;
+}
+
+.login-container {
+    padding-right: 0px;
+}
+
+.form-contacto {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-49%, -49%);
+}
+
+.form-contacto2 {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-49%, -49%);
+}
+
+
+footer {
+    background-color: #EFEFEF;
+    position: fixed;
+    width: 100%;
+    bottom: 0px;
+}
