@@ -10,14 +10,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
+builder.Services.AddSession();
 builder.Services.AddDbContext<ApplicationDbContext>(op => op.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-
-//builder.Services.AddAuthentication();
-
-//builder.Services.AddIdentity<Usuario, IdentityRole>(opciones =>
-//opciones.SignIn.RequireConfirmedAccount = false).AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();
-
 builder.Services.AddScoped<IServicio_API_Provincia, Servicio_API_Provincia>();
 builder.Services.AddScoped<IServicio_API_Municipio, Servicio_API_Municipio>();
 builder.Services.AddScoped<IServicio_API_Localidad, Servicio_API_Localidad>();
@@ -47,8 +41,8 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
 app.UseRouting();
+app.UseSession();
 app.UseAuthentication();
 app.UseAuthorization();
 

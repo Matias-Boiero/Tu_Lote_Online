@@ -11,7 +11,7 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
+        <form asp-action="Create" method="post" id="formulario" onsubmit="enviarFormulario(event)">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
             <div class="form-group">
@@ -31,7 +31,8 @@
             </div>
 
             <div class="form-group">
-                <input type="submit" value="Crear" class="btn btn-success" />
+                <button type="submit" value="Crear" class="btn btn-success">Crear</button>
+
             </div>
         </form>
     </div>
@@ -41,60 +42,65 @@
     <a class="text-white fw-bolder" asp-action="Index">Regresar</a>
 </div>
 
+
+
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script type="text/javascript">
-    $(function(){
-    $("#provinciaId").change(function(){
-        var url= '@Url.Content("~/")'+ "Municipios/GetMunicipiosById";
+        $(function(){
+        $("#provinciaId").change(function(){
+            var url= '@Url.Content("~/")'+ "Municipios/GetMunicipiosById";
 
-        var ddlsource="#provinciaId";
-        $.getJSON(url,{idProvincia:$(ddlsource).val()},function(data){
-            var items='';
-            $("#MunicipioId").empty();
-            $.each(data,function(i,row)
-            {
+            var ddlsource="#provinciaId";
+            $.getJSON(url,{idProvincia:$(ddlsource).val()},function(data){
+                var items='';
+                $("#MunicipioId").empty();
+                $.each(data,function(i,row)
+                {
 
-                items += "<option value='" + row.id+ "'>" + row.nombre +" </option>";
+                    items += "<option value='" + row.id+ "'>" + row.nombre +" </option>";
 
-            });
-            $("#MunicipioId").html(items);
+                });
+                $("#MunicipioId").html(items);
+            })
         })
-    })
-    })
+        })
 
 
-    function ddl_change_func(param1,param2) {
-        //code logic here...
+        function ddl_change_func(param1,param2) {
+            //code logic here...
 
-        //set value of hidden field with selected option text
-        var nombre = $(param1).find("option:selected").text();
-        $("#selected_val").val(nombre);
+            //set value of hidden field with selected option text
+            var nombre = $(param1).find("option:selected").text();
+            $("#selected_val").val(nombre);
 
-         var id = $(param2).find("option:selected").val();
-         $("#selected_val3").val(id)
+             var id = $(param2).find("option:selected").val();
+             $("#selected_val3").val(id)
 
-    }
+        }
 
+        function ddl_change_func2(param1) {
+            //code logic here...
 
-
-
-    function ddl_change_func2(param1) {
-        //code logic here...
-
-        //set value of hidden field with selected option text
-        var IdProvincia = $(param1).find("option:selected").val();
+            //set value of hidden field with selected option text
+            var IdProvincia = $(param1).find("option:selected").val();
 
 
-        $("#selected_val2").val(IdProvincia);
-    }
+            $("#selected_val2").val(IdProvincia);
+        }
 
-        //function ddl_change_func3(ef) {
-        ////code logic here...
 
-        ////set value of hidden field with selected option text
-        //var eId = $(ef).find("option:selected").val();
 
-        //$("#selected_val2").val(eId);
-    //}
+    function enviarFormulario(e){
+        event.preventDefault();
+       swal({
+         title: "Bien!",
+         text: "Has creado el registro con éxito!",
+         icon: "success",
+        }).then((resultado)=>{
+        const formulario= document.getElementById("formulario");
+        formulario.submit();
+        })
+     }
 
 </script>
+

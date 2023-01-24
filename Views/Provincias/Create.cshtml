@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="row">
-    <form method="post" asp-action="Create">
+    <form method="post" asp-action="Create" method="post" id="formulario" onsubmit="enviarFormulario(event)">
         <div asp-validation-summary="ModelOnly" class="danger"></div>
         <div class="Row">
 
@@ -35,4 +35,17 @@
         var ename = $(el).find("option:selected").text();
         $("#selected_val").val(ename);
     }
+
+
+     function enviarFormulario(e){
+        event.preventDefault();
+       swal({
+         title: "Bien!",
+         text: "Has creado el registro con éxito!",
+         icon: "success",
+        }).then((resultado)=>{
+        const formulario= document.getElementById("formulario");
+        formulario.submit();
+        })
+     }
 </script>

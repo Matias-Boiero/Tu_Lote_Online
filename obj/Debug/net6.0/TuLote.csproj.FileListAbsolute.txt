@@ -281,3 +281,4 @@ C:\Users\maty_\source\repos\TuLote\TuLote\bin\Debug\net6.0\Microsoft.DotNet.Plat
 C:\Users\maty_\source\repos\TuLote\TuLote\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
 C:\Users\maty_\source\repos\TuLote\TuLote\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
 C:\Users\maty_\source\repos\TuLote\TuLote\bin\Debug\net6.0\Rotativa.AspNetCore.dll
+C:\Users\maty_\source\repos\TuLote\TuLote\bin\Debug\net6.0\libman.json

@@ -30,10 +30,7 @@ namespace TuLote.Controllers
         [HttpGet]
         public async Task<IActionResult> Create()
         {
-
             ViewBag.Provincias = _API_Provincia.Lista().Result.OrderBy(p => p.Nombre);
-
-
             return View();
         }
 
@@ -54,8 +51,8 @@ namespace TuLote.Controllers
             {
                 throw new Exception("El municipio ya se encuentra registrado");
             }
-            ViewBag.Provincias = _API_Provincia.Lista().Result.OrderBy(p => p.Nombre);
 
+            var lista = await _context.Municipios.Include(p => p.Provincia).ToListAsync();
             return View(municipio);
         }
 

@@ -41,6 +41,7 @@ namespace TuLote.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewBag.listaProvincias = new SelectList(await _API_Provincia.Lista(), "Id", "Nombre").OrderBy(p => p.Text);
             return View(provincia);
         }
 

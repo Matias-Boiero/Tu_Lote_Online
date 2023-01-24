@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<form method="post" asp-action="Crear">
+<form method="post" asp-action="Crear" method="post" id="formulario" onsubmit="enviarFormulario(event)">
     <div asp-validation-summary="ModelOnly" class="danger"></div>
     <div class="Row">
 
@@ -68,4 +68,19 @@
     </div>
 </form>
 
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript">
 
+    function enviarFormulario(e){
+       event.preventDefault();
+      swal({
+        title: "Bien!",
+        text: "Has creado el registro con éxito!",
+        icon: "success",
+       }).then((resultado)=>{
+       const formulario= document.getElementById("formulario");
+       formulario.submit();
+       })
+    }
+
+</script>
