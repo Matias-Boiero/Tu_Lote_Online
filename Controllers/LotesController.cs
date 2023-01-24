@@ -44,6 +44,7 @@ namespace TuLote.Controllers
                 return RedirectToAction("Index");
             }
             ViewData["Barrio_Id"] = new SelectList(_context.Barrios, "Id", "Nombre");
+            ViewData["Usuario"] = new SelectList(_context.Users, "Id", "Alias");
             return (View(lote));
         }
 

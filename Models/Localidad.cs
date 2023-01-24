@@ -7,6 +7,7 @@ namespace TuLote.Models
     {
         public long Id { get; set; }
         [Display(Name = "Nombre de la localidad")]
+        [Required(ErrorMessage = "Elija una localidad")]
         public string Nombre { get; set; }
         [ForeignKey("Municipio")]
         public int Municipio_Id { get; set; }

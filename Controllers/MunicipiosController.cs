@@ -54,6 +54,7 @@ namespace TuLote.Controllers
             {
                 throw new Exception("El municipio ya se encuentra registrado");
             }
+            ViewBag.Provincias = _API_Provincia.Lista().Result.OrderBy(p => p.Nombre);
 
             return View(municipio);
         }

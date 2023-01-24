@@ -6,7 +6,7 @@ namespace TuLote.Models
     public class Barrio
     {
         public int Id { get; set; }
-        [Required]
+        [Required(ErrorMessage = "El nombre del barrio es requerido")]
         [Display(Name = "Nombre del barrio")]
         public string Nombre { get; set; }
         [ForeignKey("Localidad")]

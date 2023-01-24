@@ -408,3 +408,80 @@ GO
 COMMIT;
 GO
 
+BEGIN TRANSACTION;
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20230124014326_Requerimientos tabla municipio y localidad')
+BEGIN
+    DECLARE @var2 sysname;
+    SELECT @var2 = [d].[name]
+    FROM [sys].[default_constraints] [d]
+    INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+    WHERE ([d].[parent_object_id] = OBJECT_ID(N'[Municipios]') AND [c].[name] = N'Nombre');
+    IF @var2 IS NOT NULL EXEC(N'ALTER TABLE [Municipios] DROP CONSTRAINT [' + @var2 + '];');
+    ALTER TABLE [Municipios] ALTER COLUMN [Nombre] nvarchar(max) NOT NULL;
+    ALTER TABLE [Municipios] ADD DEFAULT N'' FOR [Nombre];
+END;
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20230124014326_Requerimientos tabla municipio y localidad')
+BEGIN
+    DECLARE @var3 sysname;
+    SELECT @var3 = [d].[name]
+    FROM [sys].[default_constraints] [d]
+    INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+    WHERE ([d].[parent_object_id] = OBJECT_ID(N'[Localidades]') AND [c].[name] = N'Nombre');
+    IF @var3 IS NOT NULL EXEC(N'ALTER TABLE [Localidades] DROP CONSTRAINT [' + @var3 + '];');
+    ALTER TABLE [Localidades] ALTER COLUMN [Nombre] nvarchar(max) NOT NULL;
+    ALTER TABLE [Localidades] ADD DEFAULT N'' FOR [Nombre];
+END;
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20230124014326_Requerimientos tabla municipio y localidad')
+BEGIN
+    DECLARE @var4 sysname;
+    SELECT @var4 = [d].[name]
+    FROM [sys].[default_constraints] [d]
+    INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+    WHERE ([d].[parent_object_id] = OBJECT_ID(N'[AspNetUsers]') AND [c].[name] = N'Alias');
+    IF @var4 IS NOT NULL EXEC(N'ALTER TABLE [AspNetUsers] DROP CONSTRAINT [' + @var4 + '];');
+    ALTER TABLE [AspNetUsers] ALTER COLUMN [Alias] nvarchar(3) NULL;
+END;
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20230124014326_Requerimientos tabla municipio y localidad')
+BEGIN
+    INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+    VALUES (N'20230124014326_Requerimientos tabla municipio y localidad', N'6.0.12');
+END;
+GO
+
+COMMIT;
+GO
+
+BEGIN TRANSACTION;
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20230124020518_El als e requerido')
+BEGIN
+    DECLARE @var5 sysname;
+    SELECT @var5 = [d].[name]
+    FROM [sys].[default_constraints] [d]
+    INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+    WHERE ([d].[parent_object_id] = OBJECT_ID(N'[AspNetUsers]') AND [c].[name] = N'Alias');
+    IF @var5 IS NOT NULL EXEC(N'ALTER TABLE [AspNetUsers] DROP CONSTRAINT [' + @var5 + '];');
+    ALTER TABLE [AspNetUsers] ALTER COLUMN [Alias] nvarchar(3) NOT NULL;
+    ALTER TABLE [AspNetUsers] ADD DEFAULT N'' FOR [Alias];
+END;
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20230124020518_El als e requerido')
+BEGIN
+    INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+    VALUES (N'20230124020518_El als e requerido', N'6.0.12');
+END;
+GO
+
+COMMIT;
+GO
+

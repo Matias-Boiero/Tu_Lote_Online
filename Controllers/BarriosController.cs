@@ -49,6 +49,7 @@ namespace TuLote.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["Localidad_Id"] = new SelectList(_context.Localidades, "Id", "Nombre", barrio.Localidad_Id);
+            ViewBag.listaMunicipios = _API_Municipio.Lista().Result.OrderBy(m => m.Nombre).ToList();
             return View(barrio);
         }
 

@@ -11,6 +11,7 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group mb-2">
                 <input class="form-control " asp-for="Nombre" placeholder="--Ingrese el nombre del barrio--" />
+                <span asp-validation-for="Nombre" class="text-white fw-bolder"></span>
             </div>
             <div class="form-group">
                 <select onchange="ddl_change_func2(this);" class="form-control mb-2" id="MunicipioId" asp-for="Localidad.Municipio.Id"
@@ -25,6 +26,7 @@
                 <select onchange="ddl_change_func(this,this);" class="form-control mb-2" asp-for="Localidad.Id" id="LocalidadId" name="LocalidadList" asp-items="@(new SelectList(string.Empty,"Id","Nombre"))" />
                 <input id="selected_val" type="hidden" name="Nombre" value="" />
                 <input id="selected_val3" type="hidden" name="Localidad_id" value="" />
+
             </div>
 
             <div class="form-group">

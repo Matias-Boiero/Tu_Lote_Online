@@ -1,10 +1,14 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TuLote.Models
 {
     public class Municipio
     {
         public int Id { get; set; }
+
+        [Required(ErrorMessage = "Elija un Municipio")]
+        [Display(Name = "Municipio")]
         public string Nombre { get; set; }
         [ForeignKey("Provincia")]
         public int Provincia_Id { get; set; }

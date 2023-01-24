@@ -15,32 +15,32 @@
 
 @if (Model.Count() > 0)
 {
-    <div class="container">
-        <div class="Row">
-            <div class="col-md-9">
-                <table class="table table-light table-striped table-bordered" id="MiTabla">
-                    <thead>
-                        <tr class=col-md-12>
-                            <th scope="col" class=col-md-4>Localidad</th>
-                            <th scope="col" class=col-md-4>Municipio</th>
+
+    <div class="table-responsive">
+        <div class="table">
+            <table class="table table-light table-striped table-bordered" id="MiTabla">
+                <thead>
+                    <tr class=col-md-12>
+                        <th scope="col" class=col-md-4>Localidad</th>
+                        <th scope="col" class=col-md-4>Municipio</th>
+                    </tr>
+
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr class=col-md-6>
+                            <td scope="col">@item.Nombre</td>
+                            <td scope="col">@item.Municipio.Nombre</td>
                         </tr>
 
-                    </thead>
-                    <tbody>
-                        @foreach (var item in Model)
-                        {
-                            <tr class=col-md-6>
-                                <td scope="col">@item.Nombre</td>
-                                <td scope="col">@item.Municipio.Nombre</td>
-                            </tr>
+                    }
+                </tbody>
 
-                        }
-                    </tbody>
-
-                </table>
-            </div>
+            </table>
         </div>
     </div>
+
 
 }
 else
